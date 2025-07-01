@@ -50,5 +50,7 @@ Uso de recursos (CPU/memoria) durante picos.
 Latencia percentil 99 (p99).
 Ejecutar prueba de resistencia (carga prolongada).
 
+api url: https://apiv2-test.coordinadora.com/guias/cm-guias-consultas-ms/guia/99020012725
+
 ![Captura de pantalla 2025-06-30 204017 carga](https://github.com/user-attachments/assets/71b61806-bed2-464b-92cc-4b847aecf639)
 ![Captura de pantalla 2025-06-30 203927 estreess](https://github.com/user-attachments/assets/00ef29bd-4ba2-4129-b66c-97b1612efe08)
