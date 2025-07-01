@@ -6,15 +6,15 @@ Escenario:
 790 solicitudes enviadas (12.63 req/s)
 
 Resultados:
-✅ 100% de disponibilidad (0 fallos)
-⚡ Latencia promedio: 1,046 ms (95% bajo 1,751 ms)
-⚠️ 1 umbral incumplido: Posiblemente relacionado con peticiones de hasta 2,383 ms
+100% de disponibilidad (0 fallos)
+Latencia promedio: 1,046 ms (95% bajo 1,751 ms)
+1 umbral incumplido: Posiblemente relacionado con peticiones de hasta 2,383 ms
 
 Conclusión:
 La API maneja eficientemente cargas sostenidas, con oportunidades para optimizar tiempos de conexión en casos puntuales.
 
 
-🚀 Prueba de Estrés
+Prueba de Estrés
 Escenario:
 
 Carga progresiva hasta 249 usuarios virtuales
@@ -39,10 +39,6 @@ Soporte para >200 usuarios concurrentes.
 Áreas de mejora:
 
 Optimizar tiempos de respuesta en picos de carga (2,383 ms máximos).
-
-Revisar el threshold incumplido en estrés (detalles en scripts K6).
-
-📌 Recomendaciones
 
 Monitorear en producción:
 
