@@ -1,50 +1,54 @@
-📊 Prueba de Carga
+🧪 Pruebas de Carga y Estrés – API Coordinadora
+1. Prueba de Carga
 Escenario:
 
-20 usuarios virtuales constantes
+20 usuarios virtuales simultáneos
 
-790 solicitudes enviadas (12.63 req/s)
+790 solicitudes generadas (≈12.63 solicitudes/segundo)
 
 Resultados:
-100% de disponibilidad (0 fallos)
-Latencia promedio: 1,046 ms (95% bajo 1,751 ms)
-1 umbral incumplido: Posiblemente relacionado con peticiones de hasta 2,383 ms
+
+Tasa de éxito: 100 % (sin fallos ni errores de validación)
+
+Latencia promedio: 1,046 ms
+
+Percentil 95 (p95): 1,751 ms
+
+Umbrales incumplidos: 1 (posiblemente relacionado con latencias puntuales de hasta 2,383 ms)
 
 Conclusión:
-La API maneja eficientemente cargas sostenidas, con oportunidades para optimizar tiempos de conexión en casos puntuales.
+La API responde de forma estable y sin errores ante una carga sostenida. Aunque cumple en términos funcionales, se identifican oportunidades de mejora en la latencia bajo ciertos picos.
 
-
-Prueba de Estrés
+2. Prueba de Estrés
 Escenario:
 
-Carga progresiva hasta 249 usuarios virtuales
+Incremento progresivo de carga hasta 249 usuarios virtuales
 
-1,404 solicitudes (18.84 req/s)
+1,404 solicitudes totales (≈18.84 solicitudes/segundo)
 
 Resultados:
-✅ Estabilidad total (0 fallos, 0 errores de validación)
-📈 Throughput consistente: 18.84 req/s bajo máxima carga
-⚠️ 1 umbral incumplido: Métrica específica por analizar (latencia o throughput)
+
+Tasa de éxito: 100 % (sin fallos ni errores)
+
+Throughput estable durante todo el incremento
+
+p95 de latencia: 13.7 s, mostrando degradación bajo carga extrema
+
+Umbrales incumplidos: 1, asociado al tiempo de respuesta
 
 Conclusión:
-El sistema soporta escenarios de alta demanda sin degradación funcional, demostrando escalabilidad.
+El sistema mantiene su funcionalidad bajo alta demanda, demostrando buena escalabilidad. Se observa un aumento considerable en los tiempos de respuesta, lo cual es esperable en este tipo de prueba.
 
-🔍 Hallazgos Clave
-Robustez confirmada:
+3. Observaciones Finales
+Fortalezas:
 
-Sin errores en ambas pruebas.
+Manejo robusto de solicitudes concurrentes
 
-Soporte para >200 usuarios concurrentes.
+Ausencia total de fallos o errores HTTP
 
-Áreas de mejora:
+Capacidad para soportar >200 usuarios virtuales sin colapsar
 
-Optimizar tiempos de respuesta en picos de carga (2,383 ms máximos).
+Áreas a Optimizar:
 
-Monitorear en producción:
+Monitoreo en producción de métricas como uso de CPU, memoria y respuesta en picos
 
-Uso de memoria/CPU durante picos.
-
-Latencia percentil 99 (p99).
-![Captura de pantalla 2025-06-30 203927 estreess](https://github.com/user-attachments/assets/403dedcc-a361-498e-9fca-67006cdfd4c2)
-
-![Captura de pantalla 2025-06-30 204017 carga](https://github.com/user-attachments/assets/3e2f03c5-c9ec-4a48-9140-2aa00960edad)
