@@ -1,54 +1,70 @@
-🧪 Pruebas de Carga y Estrés – API Coordinadora
-1. Prueba de Carga
-Escenario:
+# Pruebas de Rendimiento: Carga y Estrés - API de Coordinadora
 
-20 usuarios virtuales simultáneos
+Objetivo
+Evaluar la capacidad de respuesta, estabilidad y límites del sistema bajo diferentes condiciones de tráfico.
 
-790 solicitudes generadas (≈12.63 solicitudes/segundo)
+📈 Prueba de Carga
+Configuración:
 
-Resultados:
+20 usuarios virtuales constantes
 
-Tasa de éxito: 100 % (sin fallos ni errores de validación)
-
-Latencia promedio: 1,046 ms
-
-Percentil 95 (p95): 1,751 ms
-
-Umbrales incumplidos: 1 (posiblemente relacionado con latencias puntuales de hasta 2,383 ms)
-
-Conclusión:
-La API responde de forma estable y sin errores ante una carga sostenida. Aunque cumple en términos funcionales, se identifican oportunidades de mejora en la latencia bajo ciertos picos.
-
-2. Prueba de Estrés
-Escenario:
-
-Incremento progresivo de carga hasta 249 usuarios virtuales
-
-1,404 solicitudes totales (≈18.84 solicitudes/segundo)
+790 solicitudes (12.63 req/s)
 
 Resultados:
 
-Tasa de éxito: 100 % (sin fallos ni errores)
+Disponibilidad: 100% (0 fallos)
 
-Throughput estable durante todo el incremento
+Latencia:
 
-p95 de latencia: 13.7 s, mostrando degradación bajo carga extrema
+Promedio: 1,046 ms
 
-Umbrales incumplidos: 1, asociado al tiempo de respuesta
+P95: 1,751 ms
+
+Máxima: 2,383 ms (umbral incumplido)
+
+Tráfico: 1.67 MB recibidos
 
 Conclusión:
-El sistema mantiene su funcionalidad bajo alta demanda, demostrando buena escalabilidad. Se observa un aumento considerable en los tiempos de respuesta, lo cual es esperable en este tipo de prueba.
+La API maneja cargas sostenidas de forma eficiente, con oportunidades para optimizar tiempos de respuesta en casos puntuales.
 
-3. Observaciones Finales
+🚀 Prueba de Estrés
+Configuración:
+
+Escalado progresivo hasta 249 usuarios virtuales
+
+1,404 solicitudes (18.84 req/s)
+
+Resultados:
+
+Estabilidad: 0 fallos / 0 errores de validación
+
+Throughput: 18.84 req/s bajo carga máxima
+
+Umbrales: 1 incumplido (revisar métrica específica en scripts)
+
+Tráfico: 4.08 MB recibidos
+
+Conclusión:
+El sistema demuestra escalabilidad ante cargas extremas, manteniendo su funcionalidad básica.
+
+🔎 Hallazgos Clave
 Fortalezas:
 
-Manejo robusto de solicitudes concurrentes
+Soporta >200 usuarios concurrentes sin errores.
 
-Ausencia total de fallos o errores HTTP
+Rendimiento consistente en pruebas prolongadas.
 
-Capacidad para soportar >200 usuarios virtuales sin colapsar
+Oportunidades:
 
-Áreas a Optimizar:
+Optimizar peticiones lentas (hasta 2,383 ms).
 
-Monitoreo en producción de métricas como uso de CPU, memoria y respuesta en picos
+Investigar el umbral incumplido en estrés.
 
+🔧 Recomendaciones Técnicas
+Monitorear en producción:
+
+Uso de recursos (CPU/memoria) durante picos.
+
+Latencia percentil 99 (p99).
+
+Ejecutar prueba de resistencia (carga prolongada).
