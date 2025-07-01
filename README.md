@@ -49,3 +49,6 @@ Monitorear en producción:
 Uso de memoria/CPU durante picos.
 
 Latencia percentil 99 (p99).
+![Captura de pantalla 2025-06-30 203927 estreess](https://github.com/user-attachments/assets/403dedcc-a361-498e-9fca-67006cdfd4c2)
+
+![Captura de pantalla 2025-06-30 204017 carga](https://github.com/user-attachments/assets/3e2f03c5-c9ec-4a48-9140-2aa00960edad)
